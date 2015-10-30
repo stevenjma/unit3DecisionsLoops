@@ -53,7 +53,7 @@ public class NumericalMethods
                 {
                     isPrime = false;
                 }
-                if (isPrime)
+                if (isPrime == true)
                 {
                     System.out.println(prime);
                 }
