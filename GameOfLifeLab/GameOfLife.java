@@ -18,8 +18,8 @@ public class GameOfLife
     private ActorWorld world;
     
     // the game board will have 5 rows and 5 columns
-    private final int ROWS = 5;
-    private final int COLS = 5;
+    private final int ROWS = 7;
+    private final int COLS = 7;
     
     /**
      * Default constructor for objects of class GameOfLife
@@ -53,9 +53,14 @@ public class GameOfLife
     private void populateGame()
     {
         // constants for the location of the three cells initially alive
-        final int X1 = 2, Y1 = 0;
-        final int X2 = 0, Y2 = 2;
-        final int X3 = 1, Y3 = 2;
+        final int X1 = 2, Y1 = 2;
+        final int X2 = 3, Y2 = 2;
+        final int X3 = 4, Y3 = 2;
+        final int X4 = 4, Y4 = 3;
+        final int X5 = 2, Y5 = 3;
+        final int X6 = 2, Y6 = 4;
+        final int X7 = 3, Y7 = 4;
+        final int X8 = 4, Y8 = 4;
 
         // the grid of Actors that maintains the state of the game
         //  (alive cells contains actors; dead cells do not)
@@ -73,6 +78,26 @@ public class GameOfLife
         Rock rock3 = new Rock();
         Location loc3 = new Location(Y3, X3);
         grid.put(loc3, rock3);
+        
+        Rock rock4 = new Rock();
+        Location loc4 = new Location(Y4, X4);
+        grid.put(loc4, rock4);
+        
+        Rock rock5 = new Rock();    
+        Location loc5 = new Location(Y5, X5);
+        grid.put(loc5, rock5);
+        
+        Rock rock6 = new Rock();
+        Location loc6 = new Location(Y6, X6);
+        grid.put(loc6, rock6);
+
+        Rock rock7 = new Rock();
+        Location loc7 = new Location(Y7, X7);
+        grid.put(loc7, rock7);
+        
+        Rock rock8 = new Rock();
+        Location loc8 = new Location(Y8, X8);
+        grid.put(loc8, rock8);
     }
 
     /**

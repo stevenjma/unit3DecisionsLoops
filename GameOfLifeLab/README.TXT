@@ -30,10 +30,44 @@ The universe of the Game of Life is an infinite two-dimensional orthogonal
 	moment at which this happens is sometimes called a tick (in other words,
 	each generation is a pure function of the preceding one). The rules
 	continue to be applied repeatedly to create further generations.
-* Use a 6x6 grid to display the cells
+* Use a 7x7 grid to display the cells
 * Have a 200x400 display
 * Start with a simple square design; go from there and allow it to go and do its thing
 
+Simulation:
+Gen 0:
+111
+101
+111
+
+Gen1:
+00100
+01010
+10001
+01010
+00100
+
+Gen 2:
+00100
+01110
+11011
+01110
+
+Gen 3:
+01110
+10001
+10001
+10001
+01110
+
+Gen 4:
+0001000
+0011100
+0101010
+1110111
+0101010
+0011100
+0001000
 
 Nonfunctional Requirements:
 
