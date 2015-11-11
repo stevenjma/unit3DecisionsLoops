@@ -22,6 +22,7 @@ public class GameOfLife
     private final int ROWS = 7;
     private final int COLS = 7;
     
+    
     /**
      * Default constructor for objects of class GameOfLife
      * 
@@ -41,9 +42,6 @@ public class GameOfLife
         
         // display the newly constructed and populated world
         world.show();
-        step();
-        step();
-        step();
     }
     
     /**
@@ -103,10 +101,11 @@ public class GameOfLife
         grid.put(loc8, rock8);
     }
 
-    private void step()
+    public void step()
     {
         createNextGeneration();
     }
+    
     /**
      * Generates the next generation based on the rules of the Game of Life and updates the grid
      * associated with the world
@@ -115,7 +114,7 @@ public class GameOfLife
      * @post    the world has been populated with a new grid containing the next generation
      * 
      */
-    private void createNextGeneration()
+    public void createNextGeneration()
     {
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
@@ -124,29 +123,28 @@ public class GameOfLife
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
 
-        
+        Grid<Actor> newGrid = new BoundedGrid(ROWS, COLS);
         for (int row = 0; row <= 6; row++)
         {
             for (int columns = 0; columns <= 6; columns++)
             {
                 ArrayList<Actor> neighbors = grid.getNeighbors(new Location(row,columns));
                 System.out.println(neighbors.size());
-                if (neighbors.size() == 2)
+                if (neighbors.size() == 2 && (grid.get(new Location(row,columns)) != null))
                 {
                     System.out.println("This cell lives on!");
-                    grid.put(new Location(row,columns),new Rock());
+                    newGrid.put(new Location(row,columns),new Rock());
                 }
                 else if (neighbors.size() == 3)
                 {
                     System.out.println("This cell shall be born!");
-                    grid.put(new Location(row,columns),new Rock());
+                    newGrid.put(new Location(row,columns),new Rock());
                 }
                 System.out.println(row + " " + columns);
             }
         }
         
-        grid.setGrid();
-        
+        world.setGrid(newGrid);
     }
     
     /**

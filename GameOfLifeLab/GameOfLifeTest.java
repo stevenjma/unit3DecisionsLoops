@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import info.gridworld.actor.Actor;
+import java.util.Scanner;
 
 /**
  * The test class GameOfLifeTest.
@@ -91,24 +92,55 @@ public class GameOfLifeTest
     @Test
     public void testFinalState()
     {
-        /* expected pattern for final state (3 generations)
+        /* expected pattern for final state ( generations)
          *  (X: alive; -: dead)
          * 
          *    0 1 2 3 4 5 6
-         *  0 - X X X X X -
-         *  1 X - - - - - X
+         *  0 - - X X X - -
+         *  1 - - - - - - -
          *  2 X - - - - - X
          *  3 X - - - - - X 
          *  4 X - - - - - X
-         *  5 X - - - - - X
-         *  6 - X X X X X -
+         *  5 - - - - - - -
+         *  6 - - X X X - -
          */
         
         GameOfLife game = new GameOfLife();
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
 
-        for(int row = 0; row < ROWS; row++)
+        try {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        game.step();
+        try {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        game.step();
+        try {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        game.step();
+        try {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        game.step();
+        try {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        game.step();
+        
+       for(int row = 0; row < ROWS; row++)
         {
             for(int col = 0; col < COLS; col++)
             {
@@ -119,23 +151,15 @@ public class GameOfLifeTest
                 if(     (row == 0 && col == 2) ||
                         (row == 0 && col == 3) ||
                         (row == 0 && col == 4) ||
-                        (row == 0 && col == 1) ||
-                        (row == 0 && col == 5) ||
                         (row == 6 && col == 2) ||
                         (row == 6 && col == 3) ||
                         (row == 6 && col == 4) ||
-                        (row == 6 && col == 1) ||
-                        (row == 6 && col == 5) ||
-                        (row == 1 && col == 0) ||
                         (row == 2 && col == 0) ||
                         (row == 3 && col == 0) ||
                         (row == 4 && col == 0) ||
-                        (row == 5 && col == 0) ||
-                        (row == 1 && col == 6) ||
                         (row == 2 && col == 6) ||
                         (row == 3 && col == 6) ||
-                        (row == 4 && col == 6) ||
-                        (row == 5 && col == 6)
+                        (row == 4 && col == 6)
                         )
                 {
                     assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
