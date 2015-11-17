@@ -1,6 +1,5 @@
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.ActorWorld;
-import info.gridworld.actor.Rock;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
@@ -67,38 +66,38 @@ public class GameOfLife
         //  (alive cells contains actors; dead cells do not)
         Grid<Actor> grid = world.getGrid();
         
-        // create and add rocks (a type of Actor) to the three intial locations
-        Rock rock1 = new Rock();
+        // create and add LivingCells (a type of Actor) to the three intial locations
+        LivingCell LivingCell1 = new LivingCell();
         Location loc1 = new Location(Y1, X1);
-        grid.put(loc1, rock1);
+        grid.put(loc1, LivingCell1);
         
-        Rock rock2 = new Rock();
+        LivingCell LivingCell2 = new LivingCell();
         Location loc2 = new Location(Y2, X2);
-        grid.put(loc2, rock2);
+        grid.put(loc2, LivingCell2);
         
-        Rock rock3 = new Rock();
+        LivingCell LivingCell3 = new LivingCell();
         Location loc3 = new Location(Y3, X3);
-        grid.put(loc3, rock3);
+        grid.put(loc3, LivingCell3);
         
-        Rock rock4 = new Rock();
+        LivingCell LivingCell4 = new LivingCell();
         Location loc4 = new Location(Y4, X4);
-        grid.put(loc4, rock4);
+        grid.put(loc4, LivingCell4);
         
-        Rock rock5 = new Rock();    
+        LivingCell LivingCell5 = new LivingCell();    
         Location loc5 = new Location(Y5, X5);
-        grid.put(loc5, rock5);
+        grid.put(loc5, LivingCell5);
         
-        Rock rock6 = new Rock();
+        LivingCell LivingCell6 = new LivingCell();
         Location loc6 = new Location(Y6, X6);
-        grid.put(loc6, rock6);
+        grid.put(loc6, LivingCell6);
 
-        Rock rock7 = new Rock();
+        LivingCell LivingCell7 = new LivingCell();
         Location loc7 = new Location(Y7, X7);
-        grid.put(loc7, rock7);
+        grid.put(loc7, LivingCell7);
         
-        Rock rock8 = new Rock();
+        LivingCell LivingCell8 = new LivingCell();
         Location loc8 = new Location(Y8, X8);
-        grid.put(loc8, rock8);
+        grid.put(loc8, LivingCell8);
     }
 
     public void step()
@@ -133,15 +132,15 @@ public class GameOfLife
                 if (neighbors.size() == 2 && (grid.get(new Location(row,columns)) != null))
                 {
                     System.out.println("This cell lives on!");
-                    newGrid.put(new Location(row,columns),new Rock());
+                    newGrid.put(new Location(row,columns),new LivingCell());
                 }
                 else if (neighbors.size() == 3)
                 {
                     System.out.println("This cell shall be born!");
-                    newGrid.put(new Location(row,columns),new Rock());
+                    newGrid.put(new Location(row,columns),new LivingCell());
                 }
                 System.out.println(row + " " + columns);
-            }
+            }   
         }
         
         world.setGrid(newGrid);
